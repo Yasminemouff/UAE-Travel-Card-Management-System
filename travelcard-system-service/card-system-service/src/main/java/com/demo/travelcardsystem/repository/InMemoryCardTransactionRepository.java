@@ -20,7 +20,7 @@ public class InMemoryCardTransactionRepository {
     private ConcurrentMap<String, TravelCard> travelCardStore = new ConcurrentHashMap<>();
     private Set<Station> stationStore = new HashSet<>();
 
-    // ✅ Inject observer so every new card gets it registered
+    // Inject observer so every new card gets it registered
     private TravelCardObserver travelCardObserver;
 
     public InMemoryCardTransactionRepository(TravelCardObserver travelCardObserver) {
@@ -62,5 +62,9 @@ public class InMemoryCardTransactionRepository {
 
     public List<String> fetchAllCardNumber() {
         return new ArrayList<>(travelCardStore.keySet());
+    }
+    
+    public Set<Station> getAllStations() {
+        return new HashSet<>(stationStore);
     }
 }
