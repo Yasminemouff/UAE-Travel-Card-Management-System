@@ -17,8 +17,6 @@ public class RuleCollection {
     public void addRules(Rule rule) {
         rules.add(rule);
     }
-<<<<<<< HEAD
-=======
 
 	public Double getMaxFare() {
 		return maxFare;
@@ -37,5 +35,4 @@ public class RuleCollection {
 	}
     
     
->>>>>>> sprint-1
 }

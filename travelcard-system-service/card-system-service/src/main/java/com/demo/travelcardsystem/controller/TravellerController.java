@@ -5,12 +5,9 @@ import com.demo.travelcardsystem.model.request.SwipeRequest;
 import com.demo.travelcardsystem.model.response.TravelCardResponse;
 import com.demo.travelcardsystem.service.TravellerService;
 import lombok.AllArgsConstructor;
-<<<<<<< HEAD
-=======
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
->>>>>>> sprint-1
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,11 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/card")
 @AllArgsConstructor
-<<<<<<< HEAD
-@CrossOrigin
-=======
 @CrossOrigin(origins = "http://localhost:4200")  
->>>>>>> sprint-1
 public class TravellerController {
 
     private TravellerService travellerService;
@@ -56,11 +49,6 @@ public class TravellerController {
     public List<String> fetchAllCard() {
         return travellerService.fetchAllCard();
     }
-<<<<<<< HEAD
-
-
-}
-=======
     
     @GetMapping(value = "/{cardNumber}/balance")
     public ResponseEntity<Double> getCardBalance(@PathVariable String cardNumber) {
@@ -68,4 +56,3 @@ public class TravellerController {
         return new ResponseEntity<>(balance, HttpStatus.OK);
     }
 }
->>>>>>> sprint-1

@@ -12,8 +12,6 @@ public class SwipeRequest implements Serializable {
     private String cardNumber;
     private String stationName;
     private TransportType transportType;
-<<<<<<< HEAD
-=======
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -34,5 +32,4 @@ public class SwipeRequest implements Serializable {
 	}
     
     
->>>>>>> sprint-1
 }

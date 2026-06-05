@@ -1,21 +1,6 @@
 package com.demo.travelcardsystem.entity;
 
 import com.demo.travelcardsystem.constant.Zone;
-<<<<<<< HEAD
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
-public class ZonePair {
-    private Zone startZone;
-    private Zone endZone;
-
-    public boolean checkIfJourneyMatchToThisZonePair(Journey journey) {
-        return journey.getStartStation().getZones().contains(startZone) && journey.getEndStation().getZones().contains(endZone);
-    }
-}
-=======
 
 public class ZonePair {
 
@@ -50,4 +35,3 @@ public class ZonePair {
         return 31 * startZone.hashCode() + endZone.hashCode();
     }
 }
->>>>>>> sprint-1

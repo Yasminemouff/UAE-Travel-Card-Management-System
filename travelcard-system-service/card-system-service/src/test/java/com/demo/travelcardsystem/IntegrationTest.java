@@ -7,14 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-<<<<<<< HEAD
-@SpringBootTest(classes = {TravelcardsystemApplication.class})
-@AutoConfigureMockMvc
-public abstract class IntegrationTest {
-}
-=======
 @SpringBootTest(classes = {TravelcardsystemApplication.class, TravelHelperTest.class})
 @AutoConfigureMockMvc
 public abstract class IntegrationTest {
 }
->>>>>>> sprint-1

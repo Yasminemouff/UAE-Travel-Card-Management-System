@@ -23,8 +23,6 @@ public class Rule {
                 || (journey.getTransportType().equals(this.getTransportType()) && zonePairSet.isEmpty());
     }
 
-<<<<<<< HEAD
-=======
 	public TransportType getTransportType() {
 		return transportType;
 	}
@@ -45,6 +43,5 @@ public class Rule {
 		return zonePairSet;
 	}
 
->>>>>>> sprint-1
 
 }

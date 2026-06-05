@@ -1,16 +1,6 @@
 package com.demo.travelcardsystem.model.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-<<<<<<< HEAD
-import lombok.Data;
-
-@Data
-@JsonIgnoreProperties
-public class CardRegistrationRequest {
-    private String cardNumber;
-    private Double balance;
-}
-=======
 
 @JsonIgnoreProperties
 public class CardRegistrationRequest {
@@ -34,4 +24,3 @@ public class CardRegistrationRequest {
         this.balance = balance;
     }
 }
->>>>>>> sprint-1

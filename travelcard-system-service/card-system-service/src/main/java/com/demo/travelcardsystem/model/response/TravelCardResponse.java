@@ -9,8 +9,6 @@ public class TravelCardResponse {
     private double balance;
     private boolean inTransit;
     private TransportType transportType;
-<<<<<<< HEAD
-=======
 	public String getCardNumber() {
 		return cardNumber;
 	}
@@ -37,5 +35,4 @@ public class TravelCardResponse {
 	}
     
     
->>>>>>> sprint-1
 }

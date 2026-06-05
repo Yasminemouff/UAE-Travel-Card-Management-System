@@ -13,22 +13,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class GlobalExceptionHandlerController {
 
     @ExceptionHandler({InvalidCardException.class, InvalidRechargeAmount.class})
-<<<<<<< HEAD
-    public ResponseEntity handleInvalidRequestException(TravelCardException invalidCardException) {
-        ResponseEntity responseEntity = new ResponseEntity(invalidCardException.getMessage(), HttpStatus.NOT_ACCEPTABLE);
-        invalidCardException.printStackTrace();
-        return responseEntity;
-    }
-
-    @ExceptionHandler(InvalidDataProvidedException.class)
-    public ResponseEntity handleInvalidDataProvidedException(InvalidDataProvidedException invalidDataProvidedException) {
-        ResponseEntity responseEntity = new ResponseEntity("Invalid request! Please check input", HttpStatus.BAD_REQUEST);
-        invalidDataProvidedException.printStackTrace();
-        return responseEntity;
-    }
-
-}
-=======
     public ResponseEntity<String> handleInvalidRequestException(TravelCardException invalidCardException) {
         invalidCardException.printStackTrace();
         return new ResponseEntity<>(invalidCardException.getMessage(), HttpStatus.NOT_ACCEPTABLE);
@@ -40,4 +24,3 @@ public class GlobalExceptionHandlerController {
         return new ResponseEntity<>("Invalid request! Please check input", HttpStatus.BAD_REQUEST);
     }
 }
->>>>>>> sprint-1

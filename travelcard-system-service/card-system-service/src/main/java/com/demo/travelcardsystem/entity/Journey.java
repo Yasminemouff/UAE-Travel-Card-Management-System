@@ -1,23 +1,12 @@
 package com.demo.travelcardsystem.entity;
 
 import com.demo.travelcardsystem.constant.TransportType;
-<<<<<<< HEAD
-import lombok.Builder;
-import lombok.Data;
 
-@Data
-@Builder
-=======
-
->>>>>>> sprint-1
 public class Journey {
     private Station startStation;
     private Station endStation;
     private TransportType transportType;
     private boolean journeyCompleted;
-<<<<<<< HEAD
-}
-=======
 
     // Manual builder
     public static JourneyBuilder builder() { return new JourneyBuilder(); }
@@ -51,4 +40,3 @@ public class Journey {
     public boolean isJourneyCompleted() { return journeyCompleted; }
     public void setJourneyCompleted(boolean b) { this.journeyCompleted = b; }
 }
->>>>>>> sprint-1
