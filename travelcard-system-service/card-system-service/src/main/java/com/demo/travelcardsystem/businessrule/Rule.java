@@ -23,5 +23,28 @@ public class Rule {
                 || (journey.getTransportType().equals(this.getTransportType()) && zonePairSet.isEmpty());
     }
 
+<<<<<<< HEAD
+=======
+	public TransportType getTransportType() {
+		return transportType;
+	}
+
+	public void setTransportType(TransportType transportType) {
+		this.transportType = transportType;
+	}
+
+	public Double getChargeableFare() {
+		return chargeableFare;
+	}
+
+	public void setChargeableFare(Double chargeableFare) {
+		this.chargeableFare = chargeableFare;
+	}
+
+	public Set<ZonePair> getZonePairSet() {
+		return zonePairSet;
+	}
+
+>>>>>>> sprint-1
 
 }

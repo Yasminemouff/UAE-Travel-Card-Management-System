@@ -17,4 +17,25 @@ public class RuleCollection {
     public void addRules(Rule rule) {
         rules.add(rule);
     }
+<<<<<<< HEAD
+=======
+
+	public Double getMaxFare() {
+		return maxFare;
+	}
+
+	public void setMaxFare(Double maxFare) {
+		this.maxFare = maxFare;
+	}
+
+	public Set<Rule> getRules() {
+		return rules;
+	}
+
+	public void setRules(Set<Rule> rules) {
+		this.rules = rules;
+	}
+    
+    
+>>>>>>> sprint-1
 }

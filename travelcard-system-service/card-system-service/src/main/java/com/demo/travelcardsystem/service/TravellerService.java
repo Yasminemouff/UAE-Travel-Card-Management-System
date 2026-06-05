@@ -11,18 +11,25 @@ import com.demo.travelcardsystem.model.request.SwipeRequest;
 import com.demo.travelcardsystem.model.response.TravelCardResponse;
 import com.demo.travelcardsystem.repository.InMemoryCardTransactionRepository;
 import com.demo.travelcardsystem.service.util.TravelCardConverter;
+<<<<<<< HEAD
 import lombok.AllArgsConstructor;
+=======
+>>>>>>> sprint-1
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+<<<<<<< HEAD
 @AllArgsConstructor
+=======
+>>>>>>> sprint-1
 public class TravellerService {
 
     private InMemoryCardTransactionRepository inMemoryCardTransactionRepository;
     private TravelCardConverter travelCardConverter;
 
+<<<<<<< HEAD
     /**
      * This method register new user/card in the system
      *
@@ -34,6 +41,21 @@ public class TravellerService {
         }
 
         if(cardRegistrationRequest != null && cardRegistrationRequest.getBalance() < 0 ) {
+=======
+    public TravellerService(InMemoryCardTransactionRepository inMemoryCardTransactionRepository,
+                            TravelCardConverter travelCardConverter) {
+        this.inMemoryCardTransactionRepository = inMemoryCardTransactionRepository;
+        this.travelCardConverter = travelCardConverter;
+    }
+
+    public void registerNewCard(CardRegistrationRequest cardRegistrationRequest) {
+        if (cardRegistrationRequest == null || cardRegistrationRequest.getCardNumber() == null
+                || cardRegistrationRequest.getCardNumber().isEmpty()) {
+            throw new InvalidCardException("This card is Invalid. Please use a valid card");
+        }
+
+        if (cardRegistrationRequest.getBalance() < 0) {
+>>>>>>> sprint-1
             throw new InvalidRechargeAmount("Recharge amount must not be negative");
         }
 
@@ -44,6 +66,7 @@ public class TravellerService {
         inMemoryCardTransactionRepository.registerNewCard(travelCard);
     }
 
+<<<<<<< HEAD
     /**
      * This method is to recharge existing card. Otherwise, InvalidCardException is thrown
      *
@@ -56,6 +79,14 @@ public class TravellerService {
         }
 
         if(rechargeAmount < 0 ) {
+=======
+    public void rechargeTheCard(String cardNumber, double rechargeAmount) {
+        if (cardNumber == null || cardNumber.isEmpty()) {
+            throw new InvalidCardException("This card is Invalid. Please use a valid card");
+        }
+
+        if (rechargeAmount < 0) {
+>>>>>>> sprint-1
             throw new InvalidRechargeAmount("Recharge amount must not be negative");
         }
 
@@ -63,6 +94,7 @@ public class TravellerService {
         travelCard.addCredit(rechargeAmount);
     }
 
+<<<<<<< HEAD
 
     public TravelCardResponse swipeCard(SwipeRequest swipeRequest) {
 
@@ -82,12 +114,28 @@ public class TravellerService {
             travelCard.setCurrentJourney(null);
         } else {
             // prepare a journey and set the starting station and mode of transport - (used builder pattern)
+=======
+    public TravelCardResponse swipeCard(SwipeRequest swipeRequest) {
+
+        if (null == swipeRequest.getTransportType()) throw new InvalidDataProvidedException();
+
+        TravelCard travelCard = inMemoryCardTransactionRepository.findCardByCardNumber(swipeRequest.getCardNumber());
+        Station station = inMemoryCardTransactionRepository.findStationByName(swipeRequest.getStationName());
+
+        if (null != travelCard.getCurrentJourney()) {
+            travelCard.getCurrentJourney().setEndStation(station);
+            travelCard.getCurrentJourney().setJourneyCompleted(true);
+            travelCard.notifyAllObservers();
+            travelCard.setCurrentJourney(null);
+        } else {
+>>>>>>> sprint-1
             Journey journey = Journey.builder()
                     .startStation(station)
                     .transportType(swipeRequest.getTransportType())
                     .journeyCompleted(false)
                     .build();
 
+<<<<<<< HEAD
             //Set current journey in the TravelCard
             travelCard.setCurrentJourney(journey);
             // notify the TravelCardObserver to debit the fare(Max fare as it is start of journey).
@@ -97,10 +145,19 @@ public class TravellerService {
         //prepare response and return
        return travelCardConverter.travelCard2TravelCardResponseConverter.apply(travelCard);
 
+=======
+            travelCard.setCurrentJourney(journey);
+            travelCard.notifyAllObservers();
+        }
+
+        // ✅ Updated to use getConverter()
+        return travelCardConverter.getConverter().apply(travelCard);
+>>>>>>> sprint-1
     }
 
     public TravelCardResponse checkCardDetail(String cardNumber) {
         TravelCard travelCard = inMemoryCardTransactionRepository.findCardByCardNumber(cardNumber);
+<<<<<<< HEAD
         return travelCardConverter.travelCard2TravelCardResponseConverter.apply(travelCard);
     }
 
@@ -108,3 +165,19 @@ public class TravellerService {
        return inMemoryCardTransactionRepository.fetchAllCardNumber();
     }
 }
+=======
+        // ✅ Updated to use getConverter()
+        return travelCardConverter.getConverter().apply(travelCard);
+    }
+
+    public List<String> fetchAllCard() {
+        return inMemoryCardTransactionRepository.fetchAllCardNumber();
+    }
+    
+    
+    public double getCardBalance(String cardNumber) {
+        TravelCard travelCard = inMemoryCardTransactionRepository.findCardByCardNumber(cardNumber);
+        return travelCard.getBalance();
+    }
+}
+>>>>>>> sprint-1
