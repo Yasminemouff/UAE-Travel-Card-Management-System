@@ -1,5 +1,6 @@
 package com.demo.travelcardsystem.businessrule;
 
+import com.demo.travelcardsystem.constant.FareConstants;
 import com.demo.travelcardsystem.constant.TransportType;
 import com.demo.travelcardsystem.constant.Zone;
 import com.demo.travelcardsystem.entity.ZonePair;
@@ -206,22 +207,17 @@ public class TravelStrategy {
 >>>>>>> sprint-1
     };
 
+  
+
     public RuleCollection loadAllBusinessRules() {
-        anyWhereInZoneOneStrategy.accept(2.50);
-        anyOneZoneOutsideZoneOneStrategy.accept(2.00);
-        anyTwoZoneIncludingZoneOneStrategy.accept(3.00);
-        anyTwoZoneExcludingZoneOneStrategy.accept(2.25);
-        anyThreeZoneStrategy.accept(3.20);
-        anyJourneyByBus.accept(1.80, TransportType.BUS);
+        anyWhereInZoneOneStrategy.accept(FareConstants.FARE_ANY_WHERE_IN_ZONE_ONE);
+        anyOneZoneOutsideZoneOneStrategy.accept(FareConstants.FARE_ANY_ONE_ZONE_OUTSIDE_ZONE_ONE);
+        anyTwoZoneIncludingZoneOneStrategy.accept(FareConstants.FARE_ANY_TWO_ZONE_INCLUDING_ZONE_ONE);
+        anyTwoZoneExcludingZoneOneStrategy.accept(FareConstants.FARE_ANY_TWO_ZONE_EXCLUDING_ZONE_ONE);
+        anyThreeZoneStrategy.accept(FareConstants.FARE_ANY_THREE_ZONE);
+        anyJourneyByBus.accept(FareConstants.FARE_ANY_JOURNEY_BY_BUS, TransportType.BUS);
 
-        this.ruleCollection.setMaxFare(3.20);
-<<<<<<< HEAD
-
-        return this.ruleCollection;
-    }
-
-}
-=======
+        this.ruleCollection.setMaxFare(FareConstants.MAX_FARE);
         return this.ruleCollection;
     }
 }

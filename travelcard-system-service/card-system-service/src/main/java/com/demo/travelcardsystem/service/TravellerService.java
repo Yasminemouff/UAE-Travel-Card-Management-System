@@ -14,6 +14,7 @@ import com.demo.travelcardsystem.service.util.TravelCardConverter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TravellerService {
@@ -80,13 +81,13 @@ public class TravellerService {
             travelCard.notifyAllObservers();
         }
 
-        // ✅ Updated to use getConverter()
+        //Updated to use getConverter()
         return travelCardConverter.getConverter().apply(travelCard);
     }
 
     public TravelCardResponse checkCardDetail(String cardNumber) {
         TravelCard travelCard = inMemoryCardTransactionRepository.findCardByCardNumber(cardNumber);
-        // ✅ Updated to use getConverter()
+        //Updated to use getConverter()
         return travelCardConverter.getConverter().apply(travelCard);
     }
 
@@ -98,5 +99,9 @@ public class TravellerService {
     public double getCardBalance(String cardNumber) {
         TravelCard travelCard = inMemoryCardTransactionRepository.findCardByCardNumber(cardNumber);
         return travelCard.getBalance();
+    }
+    
+    public Set<Station> getAllStations() {
+        return inMemoryCardTransactionRepository.getAllStations();
     }
 }
