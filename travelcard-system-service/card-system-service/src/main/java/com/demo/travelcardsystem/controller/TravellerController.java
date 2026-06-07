@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +25,7 @@ import java.util.Set;
 @CrossOrigin(origins = "http://localhost:4200")
 @Tag(name = "Travel Card API", description = "Endpoints for managing travel cards and stations")
 public class TravellerController {
-
+	@Autowired
     private TravellerService travellerService;
 
     @Operation(summary = "Ping the service", description = "Check if the service is running")
